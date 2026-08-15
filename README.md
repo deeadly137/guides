@@ -59,11 +59,19 @@ detail than this guide will, and you're more likely to learn something from it.
 
 Once you have booted up your live image, you will be presented by a simple
 terminal welcoming you to the Arch installation medium, and suggesting that
-you verify your internet connection and run `archinstall`. Verify you have
-internet access by running `ping ping.archlinux.org`. If it times out, you
-will need to manually setup your internet connection. For assistance with
-manual setup, start with section 1.7 of the [Arch Installation guide], or
-ask for help on our [Discord server].
+you verify your internet connection and follow the [Installation guide].
+
+Verify you have internet access by running `ping ping.archlinux.org`.
+If it times out, you will need to manually setup your internet connection.
+To ensure your network interface is listed and enabled, run `ip link`.
+
+For wireless and WWAN, make sure the card is not blocked with [rfkill].
+
+You have 3 main options to connect to the network:
+
+- **Ethernet**: plug in the cable.
+- **Wireless connection**: authenticate to the wireless network using [iwctl].
+- **Mobile broadband modem**: connect to the mobile network with the [mmcli] utility.
 
 Once you are connected to the internet, run `archinstall`.
 
@@ -116,7 +124,7 @@ administrative commands.
 
 ### Profile Selection, Applications, and Networking
 
-Caelestia is built on Hyprland, so you want the Hyprland profile, right? Wrong!
+Caelestia is built on Hyprland, so you want the Desktop profile with Hyprland DE, right? Wrong!
 The Hyprland profile bundles its own opinionated things and doesn't *quite*
 line up with our needs. Instead, choose the *Minimal* profile.
 
@@ -138,8 +146,11 @@ hit the Install button!
 Once the installation is finished, you will be presented with a prompt asking
 if you want to reboot. You do. When prompted, remove the installation medium
 and when you reboot you will find yourself at a login prompt. Login as the
-user you created during the install, and once again ensure you have internet
-access.
+user you created during the install, and keep in mind that you won't have an
+active internet connection right after rebooting.
+
+You can easily connect using `nmtui`, a text-based interface for NetworkManager.
+It's intuitive enough that you won't need a guide to figure it out.
 
 ## Installing Caelestia
 
@@ -209,4 +220,8 @@ how to work through it and improve this guide for the next person!
 [Arch install image]: https://archlinux.org/download/
 [USB flash installation medium]: https://wiki.archlinux.org/title/USB_flash_installation_medium
 [Arch Installation guide]: https://wiki.archlinux.org/title/Installation_guide
+[Installation guide]: https://wiki.archlinux.org/title/Installation_guide
+[rfkill]: https://wiki.archlinux.org/title/Rfkill
+[iwctl]: https://wiki.archlinux.org/title/Iwctl
+[mmcli]: https://wiki.archlinux.org/title/mmcli
 [Reflector]: https://wiki.archlinux.org/title/Reflector

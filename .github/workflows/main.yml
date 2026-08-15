@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - main
+
+name: "Lint"
+
+jobs:
+  markdownlint:
+    name: Markdownlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run Markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@main
